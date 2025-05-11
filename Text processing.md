@@ -2,20 +2,20 @@
 clear all ;
 my_text = fileread('file path');
 my_text = string(my_text);
-disp("my_text before cleaning empty lines")
+disp("Original Text including empty lines")
 my_text = splitlines(my_text)
 
 TF = (my_text == ""); % create logical array for indices with empty lines;
-disp("my_text after cleaning empty lines")
+disp("Text without empty lines")
 my_text(TF) = [] % i think make the lines of indices of my_text which equals to zero  empty
 
 p = {'.', '?', '!', ','}; % p is a varib type cell ,  cell is a special type of variable that can hold different types and sizes of data in the same container
 
-disp("my_text after cleaning empty lines and removing punctiuations")
+disp("Text without empty lines and punctiuations")
 
 my_text = replace(my_text,p, ' ') % replace the characters in my_text in p  with emptay space
 
-disp("my_text after removing the spaces from the begining and the end")
+disp("Text without header and end spaces")
 
 my_text = strip(my_text) % remove the spaces before and after
 
